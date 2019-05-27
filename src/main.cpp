@@ -1903,32 +1903,26 @@ int64_t GetBlockValue(int nHeight)
     int64_t nSubsidy = 0;
     if (nHeight == 0) {
         nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
+    } else if (nHeight <= 1000 && nHeight > 0) {
         nSubsidy = 250 * COIN;
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
+    } else if (nHeight <= 10000 && nHeight > 1000) {
+        nSubsidy = 200 * COIN;      
+    } else if (nHeight <= 20000 && nHeight >= 10001) {
         nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
+    } else if (nHeight <= 30000 && nHeight >= 20001) {
         nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
+    } else if (nHeight <= 40000 && nHeight >= 30001) {
         nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
+    } else if (nHeight <= 50000 && nHeight >= 40001) {
         nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
+    } else if (nHeight <= 60000 && nHeight >= 50001) {
         nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
+    } else if (nHeight <= 70000 && nHeight >= 60001) {
         nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
+    } else if (nHeight <= 80000 && nHeight >= 70001) {
         nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
-    } else if (nHeight < Params().Zerocoin_Block_V2_Start()) {
-        nSubsidy = 4.5 * COIN;
+    } else if (nHeight <= 90000 && nHeight >= 80001) {
+        nSubsidy = 13.5 * COIN;
     } else {
         nSubsidy = 5 * COIN;
     }
@@ -2366,8 +2360,8 @@ bool CScriptCheck::operator()()
     return true;
 }
 
-CBitcoinAddress addressExp1("DQZzqnSR6PXxagep1byLiRg9ZurCZ5KieQ");
-CBitcoinAddress addressExp2("DTQYdnNqKuEHXyNeeYhPQGGGdqHbXYwjpj");
+CBitcoinAddress addressExp1("PQZzqnSR6PXxagep1byLiRg9ZurCZ5KieQ");
+CBitcoinAddress addressExp2("PTQYdnNqKuEHXyNeeYhPQGGGdqHbXYwjpj");
 
 map<COutPoint, COutPoint> mapInvalidOutPoints;
 map<CBigNum, CAmount> mapInvalidSerials;
