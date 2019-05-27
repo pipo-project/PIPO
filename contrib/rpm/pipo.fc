@@ -1,0 +1,8 @@
+/usr/bin/pipo-cli		--	gen_context(system_u:object_r:pipo_exec_t,s0)
+/usr/sbin/pipod		--	gen_context(system_u:object_r:pipo_exec_t,s0)
+/usr/lib(64)?/pipo/pipod		--	gen_context(system_u:object_r:pipo_exec_t,s0)
+
+/etc/pipo(/.*)?		gen_context(system_u:object_r:pipo_conf_t,s0)
+/var/lib/pipo(/.*)?		gen_context(system_u:object_r:pipo_var_lib_t,s0)
+
+(/var)?/run/pipod(/.*)?   gen_context(system_u:object_r:pipo_var_run_t,s0)

@@ -1,5 +1,6 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers
+// Copyright (c) 2019 The PIPO Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +13,7 @@
 #include "util.h"
 #include "stakeinput.h"
 #include "utilmoneystr.h"
-#include "zpivchain.h"
+#include "zpipochain.h"
 
 using namespace std;
 

@@ -1,0 +1,157 @@
+
+## <summary>policy for pipo</summary>
+
+
+########################################
+## <summary>
+##	Transition to pipo.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`pipo_domtrans',`
+	gen_require(`
+		type pipo_t, pipo_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, pipo_exec_t, pipo_t)
+')
+
+
+########################################
+## <summary>
+##	Execute pipo server in the pipo domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`pipo_initrc_domtrans',`
+	gen_require(`
+		type pipo_initrc_exec_t;
+	')
+
+	init_labeled_script_domtrans($1, pipo_initrc_exec_t)
+')
+
+
+########################################
+## <summary>
+##	Search pipo lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`pipo_search_lib',`
+	gen_require(`
+		type pipo_var_lib_t;
+	')
+
+	allow $1 pipo_var_lib_t:dir search_dir_perms;
+	files_search_var_lib($1)
+')
+
+########################################
+## <summary>
+##	Read pipo lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`pipo_read_lib_files',`
+	gen_require(`
+		type pipo_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	read_files_pattern($1, pipo_var_lib_t, pipo_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage pipo lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`pipo_manage_lib_files',`
+	gen_require(`
+		type pipo_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_files_pattern($1, pipo_var_lib_t, pipo_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage pipo lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`pipo_manage_lib_dirs',`
+	gen_require(`
+		type pipo_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_dirs_pattern($1, pipo_var_lib_t, pipo_var_lib_t)
+')
+
+
+########################################
+## <summary>
+##	All of the rules required to administrate
+##	a pipo environment
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	Role allowed access.
+##	</summary>
+## </param>
+## <rolecap/>
+#
+interface(`pipo_admin',`
+	gen_require(`
+		type pipo_t;
+		type pipo_initrc_exec_t;
+		type pipo_var_lib_t;
+	')
+
+	allow $1 pipo_t:process { ptrace signal_perms };
+	ps_process_pattern($1, pipo_t)
+
+	pipo_initrc_domtrans($1)
+	domain_system_change_exemption($1)
+	role_transition $2 pipo_initrc_exec_t system_r;
+	allow $2 system_r;
+
+	files_search_var_lib($1)
+	admin_pattern($1, pipo_var_lib_t)
+
+')
+

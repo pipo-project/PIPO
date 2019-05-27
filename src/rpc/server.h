@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers
+// Copyright (c) 2019 The PIPO Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +9,7 @@
 #define BITCOIN_RPCSERVER_H
 
 #include "amount.h"
-#include "zpiv/zerocoin.h"
+#include "zpipo/zerocoin.h"
 #include "rpc/protocol.h"
 #include "uint256.h"
 
@@ -129,7 +130,7 @@ public:
 };
 
 /**
- * PIVX RPC command dispatcher.
+ * PIPO RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -265,11 +266,11 @@ extern UniValue importzerocoins(const UniValue& params, bool fHelp);
 extern UniValue exportzerocoins(const UniValue& params, bool fHelp);
 extern UniValue reconsiderzerocoins(const UniValue& params, bool fHelp);
 extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
-extern UniValue setzpivseed(const UniValue& params, bool fHelp);
-extern UniValue getzpivseed(const UniValue& params, bool fHelp);
+extern UniValue setzpiposeed(const UniValue& params, bool fHelp);
+extern UniValue getzpiposeed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
-extern UniValue searchdzpiv(const UniValue& params, bool fHelp);
-extern UniValue dzpivstate(const UniValue& params, bool fHelp);
+extern UniValue searchdzpipo(const UniValue& params, bool fHelp);
+extern UniValue dzpipostate(const UniValue& params, bool fHelp);
 extern UniValue clearspendcache(const UniValue& params, bool fHelp);
 extern UniValue enableautomintaddress(const UniValue& params, bool fHelp);
 extern UniValue createautomintaddress(const UniValue& params, bool fHelp);

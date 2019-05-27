@@ -1,0 +1,37 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/pipo_bg.qm</file>
+        <file alias="ca">locale/pipo_ca.qm</file>
+        <file alias="cs">locale/pipo_cs.qm</file>
+        <file alias="da">locale/pipo_da.qm</file>
+        <file alias="de">locale/pipo_de.qm</file>
+        <file alias="en">locale/pipo_en.qm</file>
+        <file alias="en_GB">locale/pipo_en_GB.qm</file>
+        <file alias="en_US">locale/pipo_en_US.qm</file>
+        <file alias="eo">locale/pipo_eo.qm</file>
+        <file alias="es">locale/pipo_es.qm</file>
+        <file alias="es_ES">locale/pipo_es_ES.qm</file>
+        <file alias="fi">locale/pipo_fi.qm</file>
+        <file alias="fr_FR">locale/pipo_fr_FR.qm</file>
+        <file alias="hi_IN">locale/pipo_hi_IN.qm</file>
+        <file alias="hr">locale/pipo_hr.qm</file>
+        <file alias="hr_HR">locale/pipo_hr_HR.qm</file>
+        <file alias="it">locale/pipo_it.qm</file>
+        <file alias="ja">locale/pipo_ja.qm</file>
+        <file alias="ko_KR">locale/pipo_ko_KR.qm</file>
+        <file alias="lt_LT">locale/pipo_lt_LT.qm</file>
+        <file alias="nl">locale/pipo_nl.qm</file>
+        <file alias="pl">locale/pipo_pl.qm</file>
+        <file alias="pt">locale/pipo_pt.qm</file>
+        <file alias="pt_BR">locale/pipo_pt_BR.qm</file>
+        <file alias="ro_RO">locale/pipo_ro_RO.qm</file>
+        <file alias="ru">locale/pipo_ru.qm</file>
+        <file alias="sk">locale/pipo_sk.qm</file>
+        <file alias="sv">locale/pipo_sv.qm</file>
+        <file alias="tr">locale/pipo_tr.qm</file>
+        <file alias="uk">locale/pipo_uk.qm</file>
+        <file alias="vi">locale/pipo_vi.qm</file>
+        <file alias="zh_CN">locale/pipo_zh_CN.qm</file>
+        <file alias="zh_TW">locale/pipo_zh_TW.qm</file>
+    </qresource>
+</RCC>

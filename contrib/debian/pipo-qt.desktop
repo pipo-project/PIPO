@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=PIPO Core
+Comment=PIPO P2P Cryptocurrency
+Comment[fr]=PIPO, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PIPO, eşten eşe kriptografik sanal para birimi
+Exec=pipo-qt %u
+Terminal=false
+Type=Application
+Icon=pipo128
+MimeType=x-scheme-handler/pipo;
+Categories=Office;Finance;
+StartupWMClass=Pipo-qt

@@ -1,0 +1,6 @@
+usr/local/bin/pipo-qt usr/bin
+share/pixmaps/pipo32.xpm usr/share/pixmaps
+share/pixmaps/pipo16.xpm usr/share/pixmaps
+share/pixmaps/pipo128.png usr/share/pixmaps
+debian/pipo-qt.desktop usr/share/applications
+debian/pipo-qt.protocol usr/share/kde4/services/

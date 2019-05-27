@@ -10,8 +10,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between pivx-cli and pivxd)
- * of a given instance of the Pivx system.
+ * CBaseChainParams defines the base parameters (shared between pipo-cli and pipod)
+ * of a given instance of the Pipo system.
  */
 class CBaseChainParams
 {

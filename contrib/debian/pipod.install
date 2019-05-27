@@ -1,0 +1,3 @@
+usr/local/bin/pipod usr/bin
+usr/local/bin/pipo-cli usr/bin
+debian/examples/pipo.conf etc/pipo

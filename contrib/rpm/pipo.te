@@ -1,0 +1,81 @@
+policy_module(pipo, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type pipo_t;
+type pipo_exec_t;
+init_daemon_domain(pipo_t, pipo_exec_t)
+
+permissive pipo_t;
+
+type pipo_initrc_exec_t;
+init_script_file(pipo_initrc_exec_t)
+
+type pipo_conf_t;
+files_type(pipo_conf_t)
+
+type pipo_var_lib_t;
+files_type(pipo_var_lib_t)
+
+type pipo_var_run_t;
+files_type(pipo_var_run_t)
+
+type pipo_port_t;
+corenet_port(pipo_port_t)
+
+########################################
+#
+# pipo local policy
+#
+allow pipo_t self:process { fork };
+
+allow pipo_t self:fifo_file rw_fifo_file_perms;
+allow pipo_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(pipo_t, pipo_conf_t, pipo_conf_t)
+manage_files_pattern(pipo_t, pipo_conf_t, pipo_conf_t)
+
+manage_dirs_pattern(pipo_t, pipo_var_lib_t, pipo_var_lib_t)
+manage_files_pattern(pipo_t, pipo_var_lib_t, pipo_var_lib_t)
+files_var_lib_filetrans(pipo_t, pipo_var_lib_t, { dir file })
+
+manage_dirs_pattern(pipo_t, pipo_var_run_t, pipo_var_run_t)
+manage_files_pattern(pipo_t, pipo_var_run_t, pipo_var_run_t)
+
+sysnet_dns_name_resolve(pipo_t)
+corenet_all_recvfrom_unlabeled(pipo_t)
+
+allow pipo_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(pipo_t)
+corenet_tcp_sendrecv_generic_node(pipo_t)
+corenet_tcp_sendrecv_all_ports(pipo_t)
+corenet_tcp_bind_generic_node(pipo_t)
+
+gen_require(`
+    type pipo_port_t;
+')
+allow pipo_t pipo_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type pipo_port_t;
+')
+allow pipo_t pipo_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(pipo_t)
+
+files_read_etc_files(pipo_t)
+
+miscfiles_read_localization(pipo_t)
+
+sysnet_dns_name_resolve(pipo_t)
+
+allow pipo_t pipo_exec_t:file execute_no_trans;
+allow pipo_t self:process setsched;
+corecmd_exec_ls(pipo_t)
+corenet_tcp_connect_http_port(pipo_t)
+dev_read_urand(pipo_t)
+fs_getattr_xattr_fs(pipo_t)
+kernel_read_system_state(pipo_t)

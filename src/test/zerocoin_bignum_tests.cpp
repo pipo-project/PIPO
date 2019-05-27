@@ -8,7 +8,7 @@
 #include "libzerocoin/Denominations.h"
 #include "libzerocoin/CoinSpend.h"
 #include "libzerocoin/Accumulator.h"
-#include "zpiv/zerocoin.h"
+#include "zpipo/zerocoin.h"
 
 using namespace libzerocoin;
 
